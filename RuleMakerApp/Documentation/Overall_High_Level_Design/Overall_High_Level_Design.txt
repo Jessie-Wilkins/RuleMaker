@@ -1,0 +1,39 @@
+The entire RuleMaker application will involve several different pieces to function. However, this document will focus on the
+high level design and will produce basic functionalities that I will then be able to pull from when creating this application
+piece by piece.
+
+I. The Purpose of the RuleMaker
+    1. The RuleMaker is for turning certain repeating or even unique life decisions into simple answers
+    based on different variables in a constructed equation. 
+    2. The user will use the constructed rules by inserting data that they are aware of and receive an answer from those
+    calculations.
+II. The Overall User Story or Case of the RuleMaker
+    1. The user initiates rule creation.
+    2. The user will choose advanced or guided mode.
+        a. In advanced, the user will add variables, conditions, and mathematical operators.
+        This process when finished will create the formula or rule.
+        b. In guided, the user answers questions from the app which builds a formula based on the user's answers.
+    3. After the guided process or during it, the user will be able to name the rule and color code it.
+    4. The user will be able to create categories of rules for better organization.
+    5. The user will search for rules in a search bar based on rule names, rule variables, rule conditions, and categories.
+    6. The user will be able to browse the list of rules.
+    7. The will be able to select a rule and view it individually.
+    8. The user will be able to edit rule parameters and the rule name.
+    9. The user will be able to enter information into the rule and receive the calculated answer.
+    10. The user will be able to choose to save that answer.
+    11. The user will be able to view past answers from the given formula and their dates of creation.
+    12. The user will be able to categorize the past answers in selected folders.
+    13. The user will be able to select several answers or a category of answers.
+    14. The user will be able to delete those answers and retrieve them from a trash bin if desired.
+    15. The user will be able to map the actual result based on whatever metric the answer uses.
+    16. The user will be able to perform analysis on selected group or category of answers to see if it performed as desired.
+        a. It can perform statistical analysis such as regression anaysis to determine how correlated the answers
+        are to the actual results.
+        b. It can perform the same analysis to determine the correlation of different variables in the equation.
+        c. It will be able to graph these analyses.
+        d. The analysis, if possible, will give an "accuracy" measure for how close the answer was to the result.
+        e. From several analyses, the application can recommend "tweaks" to variables to more accurately predict given results.
+        f. The application can also give a robustness measure based on various other measures and testing to see how robust 
+        tweaks or current variables are.
+        g. Of course, the tweaks can be selectively accepted by the user.
+    17.
