@@ -17,7 +17,7 @@ II. The Overall User Story or Case of the RuleMaker
     4. The user will be able to create categories of rules for better organization.
     5. The user will search for rules in a search bar based on rule names, rule variables, rule conditions, and categories.
     6. The user will be able to browse the list of rules.
-    7. The will be able to select a rule and view it individually.
+    7. The user will be able to select a rule and view it individually.
     8. The user will be able to edit rule parameters and the rule name.
     9. The user will be able to enter information into the rule and receive the calculated answer.
     10. The user will be able to choose to save that answer.
@@ -26,14 +26,21 @@ II. The Overall User Story or Case of the RuleMaker
     13. The user will be able to select several answers or a category of answers.
     14. The user will be able to delete those answers and retrieve them from a trash bin if desired.
     15. The user will be able to map the actual result based on whatever metric the answer uses.
-    16. The user will be able to perform analysis on selected group or category of answers to see if it performed as desired.
-        a. It can perform statistical analysis such as regression anaysis to determine how correlated the answers
+    16. The user will be able to perform analysis on the selected group or category of answers to see if it performed as desired.
+        a. The application can perform statistical analysis such as regression anaysis to determine how correlated the answers
         are to the actual results.
-        b. It can perform the same analysis to determine the correlation of different variables in the equation.
-        c. It will be able to graph these analyses.
-        d. The analysis, if possible, will give an "accuracy" measure for how close the answer was to the result.
+        b. Application can perform the same analysis to determine the correlation of different variables in the equation.
+        c. Application will be able to graph these analyses.
+        d. The application, if possible, will give an "accuracy" measure for how close the answer was to the result.
         e. From several analyses, the application can recommend "tweaks" to variables to more accurately predict given results.
         f. The application can also give a robustness measure based on various other measures and testing to see how robust 
         tweaks or current variables are.
         g. Of course, the tweaks can be selectively accepted by the user.
-    17.
+
+III. The Parts of the RuleMaker
+    1. Formula Creator
+    2. Formula Store
+    3. Formula Calculator
+    4. Answer and Results Store
+    5. Formula, Answer, and Results Analyzer
+    6. Formula Tweaker.

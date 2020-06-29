@@ -1,0 +1,9 @@
+The Formula Creator creates a rule or formula based on the user's input whether that is via direct input or through
+a questionnaire. The following is the specific or granular use cases or user story for this class or concept.
+
+Scenario 1: The user chooses to directly input the formula components.
+    1. The user enters the number of values.
+    2. The user enters in a variable name and value type.
+    3. The user enters in an operator (*, +, -, /, etc.).
+    4. The user does this until the formula template has been populated.
+    5. The user can choose to add another blank variable to the formula.
