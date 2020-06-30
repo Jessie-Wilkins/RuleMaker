@@ -6,4 +6,16 @@ Scenario 1: The user chooses to directly input the formula components.
     2. The user enters in a variable name and value type.
     3. The user enters in an operator (*, +, -, /, etc.).
     4. The user does this until the formula template has been populated.
-    5. The user can choose to add another blank variable to the formula.
+    5. The user can choose to add another blank variable and operator to the formula.
+    6. The user confirms and saves the formula.
+Scenario 2: The user chooses to use a questionnaire to create the formula.
+    1. The user is asked about what kind of problem or scenario they are dealing with.
+    2. The user is then asked about what potentially contributes or affects the problem or scenario.
+    3. The user is then asked what kind of factor it is (number, status, yes/no value, etc.).
+    4. After this, the user is asked what other factors exist that affect the outcome of a scenario.
+    5. After adding this second factor, the user is asked how the first and second factor affect each other
+    (factor2 negates factor1, factor2 adds to factor1, etc.)
+    6. The user will then continue the questionnaire which asks the same series of questions.
+    7. If the user is done adding different factors of the scenario, they say 'no' to the question about adding
+    a factor.
+    8. The application finishes the questionnaire and creates the application.
