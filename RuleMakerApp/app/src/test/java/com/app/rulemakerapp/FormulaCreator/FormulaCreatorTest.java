@@ -33,4 +33,18 @@ public class FormulaCreatorTest {
 
     }
 
+    @Test
+    public void testThatFormulaCreatorCannotAddAnotherOperator() {
+        FormulaCreator formulaCreator = new FormulaCreator();
+
+        formulaCreator.addVariable("TestVariable");
+
+        formulaCreator.addOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaCreator.addOperator(FormulaComponents.Operator.SUBTRACTION);
+
+        assertEquals("TestVariable+", formulaCreator.getFormulaString());
+
+    }
+
 }

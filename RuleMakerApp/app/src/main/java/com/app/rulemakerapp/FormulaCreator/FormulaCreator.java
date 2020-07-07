@@ -13,6 +13,8 @@ class FormulaCreator {
     }
 
     public void addOperator(FormulaComponents.Operator operator) {
-         this.formula+="+";
+        if(formula.charAt(formula.length()-1) != '+') {
+            this.formula+="+";
+        }
     }
 }
