@@ -25,6 +25,10 @@ public class FormulaHolderTest {
         FormulaHolder formulaHolder = new FormulaHolder();
 
         formulaHolder.setVariable("TestVariable");
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        assertEquals("TestVariable+", formulaHolder.toString());
     }
 
 }
