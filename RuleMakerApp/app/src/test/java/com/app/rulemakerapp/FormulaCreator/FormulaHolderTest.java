@@ -31,4 +31,32 @@ public class FormulaHolderTest {
         assertEquals("TestVariable+", formulaHolder.toString());
     }
 
+    @Test
+    public void testThatFormulaHolderCanSetDataType() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setVariable("TestVariable");
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
+
+        assertEquals("TestVariable[INTEGER]+", formulaHolder.toString());
+    }
+
+    @Test
+    public void testThatFormulaHolderCanSetAnotherVariable() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setVariable("TestVariable");
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
+
+        formulaHolder.setVariable("SecondVariable");
+
+        assertEquals("TestVariable[INTEGER]+SecondVariable", formulaHolder.toString());
+    }
+
 }

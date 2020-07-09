@@ -2,6 +2,12 @@ package com.app.rulemakerapp.FormulaCreator;
 
 class FormulaComponents {
 
+    public enum DataType {
+        INTEGER,
+        FLOAT,
+        BOOLEAN
+    }
+
     public enum Operator {
         MULTIPLICATION ("*") ,
         DIVISION ("/"),

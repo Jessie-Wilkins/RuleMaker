@@ -2,19 +2,17 @@ package com.app.rulemakerapp.FormulaCreator;
 
 class FormulaCreator {
 
-    private String formula = "";
+    private FormulaHolder formula = new FormulaHolder();
 
     public void addVariable(String variable) {
-        this.formula+= variable;
+        formula.setVariable(variable);
     }
 
     public String getFormulaString() {
-        return formula;
+        return formula.toString();
     }
 
     public void addOperator(FormulaComponents.Operator operator) {
-        if(formula.charAt(formula.length()-1) != '+') {
-            this.formula+="+";
-        }
+        formula.setOperator(operator);
     }
 }
