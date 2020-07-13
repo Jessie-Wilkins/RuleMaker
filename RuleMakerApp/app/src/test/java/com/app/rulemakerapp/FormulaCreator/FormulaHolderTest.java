@@ -59,4 +59,17 @@ public class FormulaHolderTest {
         assertEquals("TestVariable[INTEGER]+SecondVariable", formulaHolder.toString());
     }
 
+    @Test
+    public void testThatFormulaHolderCannotSetTheNextOperatorBeforeTheVariableHasBeenSet() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        assertEquals("", formulaHolder.toString());
+    }
+
+
+
+
+
 }

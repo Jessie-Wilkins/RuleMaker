@@ -2,6 +2,7 @@ package com.app.rulemakerapp.FormulaCreator;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 public class FormulaHolder {
 
@@ -13,9 +14,24 @@ public class FormulaHolder {
 
     private int currentOrder = 0;
 
+    private boolean operatorIsSet = false;
+
+    private boolean dataTypeIsSet = false;
+
     public void setVariable(String variable) {
+
+        incrementOrderIfOtherComponentsAreSet();
+
         variableOrder.put(currentOrder, variable);
 
+    }
+
+    private void incrementOrderIfOtherComponentsAreSet() {
+        if(operatorIsSet && dataTypeIsSet) {
+            currentOrder++;
+            operatorIsSet = false;
+            dataTypeIsSet = false;
+        }
     }
 
     @Override
@@ -26,11 +42,24 @@ public class FormulaHolder {
     }
 
     public void setOperator(FormulaComponents.Operator operator) {
-        variableDictionary.put(variableOrder.get(currentOrder), operator);
+        try {
+            variableDictionary.put(variableOrder.get(currentOrder), operator);
+
+            if(!variableDictionary.containsKey(variableOrder.get(currentOrder))) {
+                throw new NoSuchElementException();
+            }
+            operatorIsSet = true;
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("Must Set Variable First");
+        }
+
+
     }
 
     public void setDataType(String variable, FormulaComponents.DataType dataType) {
         variableDataType.put(variable, dataType);
+        dataTypeIsSet = true;
     }
 
     private void buildFormulaString(StringBuilder formulaStringBuilder) {
