@@ -43,8 +43,23 @@ public class FormulaCreatorTest {
 
         formulaCreator.addOperator(FormulaComponents.Operator.SUBTRACTION);
 
-        assertEquals("TestVariable+", formulaCreator.getFormulaString());
+        assertEquals("TestVariable-", formulaCreator.getFormulaString());
 
+    }
+
+    @Test
+    public void testThatFormulaCreatorCannotAddAnotherVariableBeforeSettingADataType() {
+        FormulaCreator formulaCreator = new FormulaCreator();
+
+        formulaCreator.addVariable("TestVariable");
+
+        formulaCreator.addOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaCreator.addOperator(FormulaComponents.Operator.SUBTRACTION);
+
+        formulaCreator.addVariable("TestVariable2");
+
+        assertEquals("TestVariable2-", formulaCreator.getFormulaString());
     }
 
 

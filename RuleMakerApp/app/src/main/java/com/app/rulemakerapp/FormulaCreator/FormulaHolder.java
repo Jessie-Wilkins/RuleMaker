@@ -2,7 +2,6 @@ package com.app.rulemakerapp.FormulaCreator;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 
 public class FormulaHolder {
 
@@ -22,15 +21,16 @@ public class FormulaHolder {
 
         incrementOrderIfOtherComponentsAreSet();
 
+        String temp_variable = variableOrder.get(currentOrder);
+
         variableOrder.put(currentOrder, variable);
 
-    }
+        if(variableDictionary.containsKey(temp_variable) && !variableOrder.containsValue(temp_variable)) {
+            setOperator(variableDictionary.get(temp_variable));
+        }
 
-    private void incrementOrderIfOtherComponentsAreSet() {
-        if(operatorIsSet && dataTypeIsSet) {
-            currentOrder++;
-            operatorIsSet = false;
-            dataTypeIsSet = false;
+        if(variableDataType.containsKey(temp_variable) && !variableOrder.containsValue(temp_variable)) {
+            setDataType(variableOrder.get(currentOrder),variableDataType.get(variableOrder.get(currentOrder)));
         }
     }
 
@@ -42,24 +42,25 @@ public class FormulaHolder {
     }
 
     public void setOperator(FormulaComponents.Operator operator) {
-        try {
-            variableDictionary.put(variableOrder.get(currentOrder), operator);
-
-            if(!variableDictionary.containsKey(variableOrder.get(currentOrder))) {
-                throw new NoSuchElementException();
-            }
-            operatorIsSet = true;
-        }
-        catch (NoSuchElementException e) {
-            System.out.println("Must Set Variable First");
-        }
-
-
+        variableDictionary.put(variableOrder.get(currentOrder), operator);
+        operatorIsSet = true;
     }
 
     public void setDataType(String variable, FormulaComponents.DataType dataType) {
-        variableDataType.put(variable, dataType);
-        dataTypeIsSet = true;
+        if(variableOrder.containsValue(variable)) {
+            variableDataType.put(variable, dataType);
+            dataTypeIsSet = true;
+        }
+    }
+
+    //Private Utilities
+
+    private void incrementOrderIfOtherComponentsAreSet() {
+        if(operatorIsSet && dataTypeIsSet) {
+            currentOrder++;
+            operatorIsSet = false;
+            dataTypeIsSet = false;
+        }
     }
 
     private void buildFormulaString(StringBuilder formulaStringBuilder) {

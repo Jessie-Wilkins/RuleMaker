@@ -60,7 +60,7 @@ public class FormulaHolderTest {
     }
 
     @Test
-    public void testThatFormulaHolderCannotSetTheNextOperatorBeforeTheVariableHasBeenSet() {
+    public void testThatFormulaHolderCannotSetTheOperatorBeforeTheVariableHasBeenSet() {
         FormulaHolder formulaHolder = new FormulaHolder();
 
         formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
@@ -68,8 +68,68 @@ public class FormulaHolderTest {
         assertEquals("", formulaHolder.toString());
     }
 
+    @Test
+    public void testThatFormulaHolderCannotSetTheDataTypeBeforeTheVariableHasBeenSet() {
+        FormulaHolder formulaHolder = new FormulaHolder();
 
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
 
+        assertEquals("", formulaHolder.toString());
+    }
 
+    @Test
+    public void testThatFormulaHolderOnlySetsTheVariableAfterAttemptsToAddOperatorAndDataTypeBefore() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaHolder.setVariable("SecondVariable");
+
+        assertEquals("SecondVariable", formulaHolder.toString());
+    }
+
+    @Test
+    public void testThatFormulaHolderSetsTheOperatorAfterFailedAttemptsToAddOperator() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaHolder.setVariable("SecondVariable");
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        assertEquals("SecondVariable+", formulaHolder.toString());
+    }
+
+    @Test
+    public void testThatFormulaHolderSetsTheDataTypeAfterFailedAttemptsToAddDataType() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaHolder.setVariable("SecondVariable");
+        formulaHolder.setDataType("SecondVariable",FormulaComponents.DataType.FLOAT);
+        formulaHolder.setOperator(FormulaComponents.Operator.SUBTRACTION);
+
+        assertEquals("SecondVariable[FLOAT]-", formulaHolder.toString());
+    }
+
+    @Test
+    public void testThatFormulaHolderCanSetTheSameVariableNameAsTheOneInTheFailedAttemptInAddingDataType() {
+        FormulaHolder formulaHolder = new FormulaHolder();
+
+        formulaHolder.setDataType("TestVariable",FormulaComponents.DataType.INTEGER);
+
+        formulaHolder.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formulaHolder.setVariable("TestVariable");
+
+        assertEquals("TestVariable", formulaHolder.toString());
+    }
 
 }
