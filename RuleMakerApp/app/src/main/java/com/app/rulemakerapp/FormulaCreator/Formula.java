@@ -3,7 +3,7 @@ package com.app.rulemakerapp.FormulaCreator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FormulaHolder {
+public class Formula {
 
     private HashMap<String, FormulaComponents.Operator> variableDictionary = new HashMap<>();
 
@@ -30,7 +30,7 @@ public class FormulaHolder {
         }
 
         if(variableDataType.containsKey(temp_variable) && !variableOrder.containsValue(temp_variable)) {
-            setDataType(variableOrder.get(currentOrder),variableDataType.get(variableOrder.get(currentOrder)));
+            setDataType(variableDataType.get(variableOrder.get(currentOrder)));
         }
     }
 
@@ -46,9 +46,9 @@ public class FormulaHolder {
         operatorIsSet = true;
     }
 
-    public void setDataType(String variable, FormulaComponents.DataType dataType) {
-        if(variableOrder.containsValue(variable)) {
-            variableDataType.put(variable, dataType);
+    public void setDataType(FormulaComponents.DataType dataType) {
+        if(variableOrder.containsValue(variableOrder.get(currentOrder))) {
+            variableDataType.put(variableOrder.get(currentOrder), dataType);
             dataTypeIsSet = true;
         }
     }
