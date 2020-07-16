@@ -42,8 +42,10 @@ public class Formula {
     }
 
     public void setOperator(FormulaComponents.Operator operator) {
-        variableDictionary.put(variableOrder.get(currentOrder), operator);
-        operatorIsSet = true;
+        if(variableOrder.containsValue(variableOrder.get(currentOrder))) {
+            variableDictionary.put(variableOrder.get(currentOrder), operator);
+            operatorIsSet = true;
+        }
     }
 
     public void setDataType(FormulaComponents.DataType dataType) {
@@ -51,6 +53,18 @@ public class Formula {
             variableDataType.put(variableOrder.get(currentOrder), dataType);
             dataTypeIsSet = true;
         }
+    }
+
+    public String getVariable(int order) {
+        return variableOrder.get(order);
+    }
+
+    public FormulaComponents.DataType getDataType(String variableName) {
+        return variableDataType.get(variableName);
+    }
+
+    public FormulaComponents.Operator getOperator(String variableName) {
+        return variableDictionary.get(variableName);
     }
 
     //Private Utilities

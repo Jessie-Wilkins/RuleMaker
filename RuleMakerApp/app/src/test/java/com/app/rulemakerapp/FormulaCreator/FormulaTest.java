@@ -87,7 +87,7 @@ public class FormulaTest {
 
         formula.setVariable("SecondVariable");
 
-        assertEquals("SecondVariable+", formula.toString());
+        assertEquals("SecondVariable", formula.toString());
     }
 
     @Test
@@ -129,7 +129,46 @@ public class FormulaTest {
 
         formula.setVariable("TestVariable");
 
-        assertEquals("TestVariable+", formula.toString());
+        assertEquals("TestVariable", formula.toString());
+    }
+
+    @Test
+    public void testThatFormulaCanGetVariableNameByOrder() {
+        Formula formula = new Formula();
+
+        formula.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formula.setVariable("TestVariable");
+
+        formula.setDataType(FormulaComponents.DataType.INTEGER);
+
+        assertEquals("TestVariable", formula.getVariable(0));
+    }
+
+    @Test
+    public void testThatFormulaCanGetVariableDataTypeByVariableName() {
+        Formula formula = new Formula();
+
+        formula.setVariable("TestVariable");
+
+        formula.setDataType(FormulaComponents.DataType.INTEGER);
+
+        formula.setOperator(FormulaComponents.Operator.ADDITION);
+
+        assertEquals(FormulaComponents.DataType.INTEGER, formula.getDataType("TestVariable"));
+    }
+
+    @Test
+    public void testThatFormulaCanGetTheOperatorAfterACertainVariableByThatVariableName() {
+        Formula formula = new Formula();
+
+        formula.setVariable("TestVariable");
+
+        formula.setDataType(FormulaComponents.DataType.INTEGER);
+
+        formula.setOperator(FormulaComponents.Operator.ADDITION);
+
+        assertEquals(FormulaComponents.Operator.ADDITION, formula.getOperator("TestVariable"));
     }
 
 }

@@ -25,9 +25,28 @@ public class FormulaStoreTest {
 
         formula.setDataType(FormulaComponents.DataType.INTEGER);
 
+        FormulaStore.clearFormulaStore();
+
         FormulaStore.store("Test Formula", formula);
 
         assertEquals(FormulaStore.getFormula("Test Formula").toString(), formula.toString());
+    }
+
+    @Test
+    public void testThatFormulaStoreCannotSaveAndGetAnIncompleteFormula() {
+        Formula formula = new Formula();
+
+        formula.setVariable("TestVariable");
+
+        formula.setOperator(FormulaComponents.Operator.ADDITION);
+
+        formula.setDataType(FormulaComponents.DataType.INTEGER);
+
+        FormulaStore.clearFormulaStore();
+
+        FormulaStore.store("Test Formula", formula);
+
+        assertEquals("",FormulaStore.getFormula("Test Formula").toString());
     }
 
 }
