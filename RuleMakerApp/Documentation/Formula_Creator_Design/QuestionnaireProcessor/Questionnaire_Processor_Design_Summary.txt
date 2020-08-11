@@ -1,0 +1,12 @@
+The Quesionnaire Processor is a subsystem within the Formula Creator system that helps process the answers
+from the given questions and can create new processing algorithms for each question and its answer type.
+Due to the complexity of this kind of system, a whole new design must be implemented for this.
+
+Question Processor:
+    The Question Processor will both choose the algorithm to be used (based on what question it is) and will process
+    the result from the answer given.
+    The algorithms will be limited to the FormulaCreator class methods and components, but the decision of
+    which method or component to use based on the answer can be done via process flows.
+    For example, if the user gives an answer to the question "What is the relationship between this variable 
+    and the last variable", the user's answer of "additive" or "duplicative" can be used 
+    to select "addition" or "multiplication" respectively.

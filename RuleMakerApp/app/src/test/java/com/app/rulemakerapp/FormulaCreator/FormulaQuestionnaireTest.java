@@ -37,12 +37,13 @@ public class FormulaQuestionnaireTest {
         assertEquals("Is this question specific?", formulaQuestionnaire.getQuestion(1));
     }
 
-    /*@Test
-    public void testThatFormulaQuestionnaireCanCreateQuestionProcessingAlgorithm() {
+   /* @Test
+    public void testThatFormulaQuestionnaireCanCreateQuestionProcessingAlgorithmForTypingName() {
         FormulaQuestionnaire formulaQuestionnaire = new FormulaQuestionnaire();
 
+        formulaQuestionnaire.setQuestionAnswerType();
+
         assertEquals("Is this question specific?", formulaQuestionnaire.getQuestion(1));
-    }
-*/
+    }*/
 
 }
