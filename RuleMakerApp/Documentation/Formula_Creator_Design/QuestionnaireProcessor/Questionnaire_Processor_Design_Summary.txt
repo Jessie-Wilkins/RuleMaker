@@ -10,3 +10,16 @@ Question Processor:
     For example, if the user gives an answer to the question "What is the relationship between this variable 
     and the last variable", the user's answer of "additive" or "duplicative" can be used 
     to select "addition" or "multiplication" respectively.
+    For choosing the algorithm, it will most likely use some indexing system.
+    For processing the algorithm, it will use some flexible methods to implement the algorithms
+    based on what was set beforehand and based on the user input.
+Question Algorithm Maker:
+    The Question Algorithm Maker will be tasked with forming the algorithms for each question.
+    The questions that were created beforehand will be mapped to algorithms, and the algorithms will be
+    created by choosing pre-created "flows".
+    Flows in this case determine what FormulaCreator components and methods should be used for the given question.
+    The flows will be high-level "if" statements that can be activated based on the user answers.
+    A typical flow will look something like this (at a high-level):
+        if additive -> add plus sign.
+    The creation of flows will probably look similar to how Formulas are created: they are iterative and can be
+    created to any maximum depth (in this case, with if statements and actions).
